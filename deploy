@@ -52,12 +52,11 @@ cmd() {
 # Run tests
 cmd 'npm run test'
 
-log 'npm i'
-cmd 'npm i'
+log 'Make deploy executable'
+cmd 'chmod +x deploy'
 
 log 'Run index.js'
 cmd 'node index.js'
 
-log 'Make deploy executable'
-cmd 'chmod +x deploy'
+
 
