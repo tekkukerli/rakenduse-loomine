@@ -51,3 +51,7 @@ cmd() {
 
 # Run tests
 cmd 'npm run test'
+
+cmd 'npm i'
+
+cmd 'node index.js'
