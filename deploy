@@ -1,7 +1,7 @@
 #!/bin/bash
 # Deploys app3 from version control, runs tests and if tests pass, runs new version of the app. If tests fail or any other error, sends email.
  
-# Write some HTTP headers to make Nginx happy
+# Write some HTTP headers to make Nginx happy!
 echo -e "Content-type: text/html\n"
  
 # Variables
