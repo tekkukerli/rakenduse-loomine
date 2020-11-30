@@ -1,12 +1,10 @@
 #!/bin/bash
 # Deploys app3 from version control, runs tests and if tests pass, runs new version of the app. If tests fail or any other error, sends email.
  
-# Write some HTTP headers to make Nginx happy!
+# Write some HTTP headers to make Nginx happy
 echo -e "Content-type: text/html\n"
  
 # Variables
-DIRECTORY="$PWD/public"
-VCS_URL=git@github.com:henno/foo.git
 OUTPUT=''
  
 log() {
@@ -35,7 +33,7 @@ cmd() {
         log "The previous command returned non-zero exit code. Aborting."
  
         # Send email to me
-        mail -s 'message subject' -aFrom:app3@fadsghafdhdfhjnbb.club  henno.taht@gmail.com <<< $OUTPUT
+        mail -s 'message subject' -aFrom:app@kerlideploy.xyz  kerlitekku@gmail.com <<< $OUTPUT
  
         # Stop the script
         exit $?
