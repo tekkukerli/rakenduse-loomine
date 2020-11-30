@@ -1,2 +1,2 @@
 # rakenduse-loomine
-# .env 
+
