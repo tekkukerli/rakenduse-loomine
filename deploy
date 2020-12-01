@@ -6,7 +6,7 @@ echo -e "Content-type: text/html\n"
  
 # Variables
 OUTPUT=''
-PM2_APP_NAME=index.js
+PM2_APP_NAME=index
  
 log() {
     # Output immediately (for terminal and web)
