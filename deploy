@@ -45,6 +45,7 @@ cmd() {
 
         log "Shutting down running app"
         cmd "pm2 stop $PM2_APP_NAME"
+        cmd "killall -9 mode"
  
         # Change potentially changed files (only tracked ones) back to the state they were originally in Github
         cmd "git reset --hard"
@@ -59,8 +60,9 @@ cmd 'npm run test'
 log 'Make deploy executable'
 cmd 'chmod +x deploy'
 
-#log 'Run index.js'
-#cmd 'node index.js' -not working
+log 'Run app'
+cmd 'pm2 start index.js'
+cmd 'pm2 save' 
 
 
 
