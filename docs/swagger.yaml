@@ -4,8 +4,8 @@ info:
     version: 1.0.0
 servers:
     -
-        url: 'http://localhost:4000'
-        description: Local development server
+        url: 'https://kerlideploy.xyz'
+        description: Production server
 paths:
     /users:
         summary: User related operations
