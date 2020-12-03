@@ -6,7 +6,7 @@ echo -e "Content-type: text/html\n"
  
 # Variables
 OUTPUT=''
-PM2_APP_NAME=index
+PM2_APP_NAME=pank
  
 log() {
     # Output immediately (for terminal and web)
@@ -61,7 +61,7 @@ log 'Make deploy executable'
 cmd 'chmod +x deploy'
 
 log 'Run app'
-cmd 'pm2 start index.js'
+cmd "pm2 start $PM2_APP_NAME"
 cmd 'pm2 save' 
 
 
