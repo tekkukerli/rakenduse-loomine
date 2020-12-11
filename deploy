@@ -60,6 +60,15 @@ cmd 'npm run test'
 log 'Make deploy executable'
 cmd 'chmod +x deploy'
 
+log 'building image'
+cmd 'docker build -t my-app:1.3 .'
+
+log 'tag'
+cmd 'docker tag my-app:1.3 162491260147.dkr.ecr.us-east-2.amazonaws.com/my-app:1.3'
+
+log 'pushing'
+cmd 'docker push 162491260147.dkr.ecr.us-east-2.amazonaws.com/my-app:1.3'
+
 log 'Run app'
 cmd "pm2 start $PM2_APP_NAME"
 cmd 'pm2 save' 
