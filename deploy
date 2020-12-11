@@ -63,8 +63,12 @@ cmd 'chmod +x deploy'
 log 'go to techworld'
 cmd 'cd techworld-js-docker-demo-app/'
 
+cmd 'pwd'
+
 log 'building image'
 cmd 'docker build -t my-app:1.3 .'
+
+cmd 'pwd'
 
 log 'tag'
 cmd 'docker tag my-app:1.3 162491260147.dkr.ecr.us-east-2.amazonaws.com/my-app:1.3'
