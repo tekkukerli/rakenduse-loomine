@@ -63,6 +63,9 @@ cmd 'npm run test'
 
 cd ..
 
+log 'Make deploy executable'
+cmd 'chmod +x deploy' 
+
 log 'Build image'
 TIMESTAMP=`date +%Y-%m-%d_%H-%M-%S`
 cmd "docker build -t my-app ."
