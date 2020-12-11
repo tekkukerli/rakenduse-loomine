@@ -57,7 +57,7 @@ cmd() {
 # Run tests
 cmd 'npm run test'
 
-TIMESTAMP="date +%Y-%m-&d-%H-%M-%S"
+TIMESTAMP="date +%Y-%m-%d_%H-%M-%S"
 
 log 'Make deploy executable'
 cmd 'chmod +x deploy'
