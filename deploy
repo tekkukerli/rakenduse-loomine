@@ -57,7 +57,7 @@ cmd() {
 # Run tests
 cmd 'npm run test'
 
-TIMESTAMP="date +%Y-%m-%d_%H-%M-%S"
+
 
 log 'Make deploy executable'
 cmd 'chmod +x deploy'
@@ -69,10 +69,11 @@ cmd 'cd /var/www/app.kerlideploy.xyz/techworld-js-docker-demo-app/'
 # cmd 'aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 162491260147.dkr.ecr.us-east-2.amazonaws.com'
 
 log 'build the image'
-cmd "docker build -t my-app:$TIMESTAMP techworld-js-docker-demo-app/"
+TIMESTAMP=`date +%Y-%m-%d_%H-%M-%S`
+cmd "docker build -t my-app techworld-js-docker-demo-app/"
 
 log 'tag'
-cmd "docker tag my-app:$TIMESTAMP 162491260147.dkr.ecr.us-east-2.amazonaws.com/my-app:$TIMESTAMP"
+cmd "docker tag my-app:latest 162491260147.dkr.ecr.us-east-2.amazonaws.com/my-app:$TIMESTAMP"
 
 log 'pushing'
 cmd "docker push 162491260147.dkr.ecr.us-east-2.amazonaws.com/my-app:$TIMESTAMP"
