@@ -60,8 +60,8 @@ cmd 'npm run test'
 log 'Make deploy executable'
 cmd 'chmod +x deploy'
 
-log 'go into techworld'
-cmd 'cd techworld-js-docker-demo-app'
+log 'go to techworld'
+cmd 'cd techworld-js-docker-demo-app/'
 
 log 'building image'
 cmd 'docker build -t my-app:1.3 .'
