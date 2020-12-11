@@ -57,23 +57,25 @@ cmd() {
 # Run tests
 cmd 'npm run test'
 
+TIMESTAMP="date +%Y-%m-&d-%H-%M-%S"
+
 log 'Make deploy executable'
 cmd 'chmod +x deploy'
 
 log 'go to techworld folder'
 cmd 'cd /var/www/app.kerlideploy.xyz/techworld-js-docker-demo-app/'
 
-log 'logging in to aws'
-cmd 'aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 162491260147.dkr.ecr.us-east-2.amazonaws.com'
+# log 'logging in to aws'
+# cmd 'aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 162491260147.dkr.ecr.us-east-2.amazonaws.com'
 
 log 'build the image'
-cmd 'docker build -t my-app:1.3 techworld-js-docker-demo-app/'
+cmd "docker build -t my-app:$TIMESTAMP techworld-js-docker-demo-app/"
 
 log 'tag'
-cmd 'docker tag my-app:1.3 162491260147.dkr.ecr.us-east-2.amazonaws.com/my-app:1.3'
+cmd "docker tag my-app:$TIMESTAMP 162491260147.dkr.ecr.us-east-2.amazonaws.com/my-app:$TIMESTAMP"
 
 log 'pushing'
-cmd 'docker push 162491260147.dkr.ecr.us-east-2.amazonaws.com/my-app:1.3'
+cmd "docker push 162491260147.dkr.ecr.us-east-2.amazonaws.com/my-app:$TIMESTAMP"
 
 log 'go back to main'
 cmd 'cd /var/www/app.kerlideploy.xyz/'
