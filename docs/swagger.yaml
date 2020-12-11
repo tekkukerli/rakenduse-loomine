@@ -1,11 +1,11 @@
 openapi: 3.0.2
 info:
-    title: Kerli pangaAPI
+    title: Kerli mini pangaAPI
     version: 1.0.0
 servers:
     -
-        url: 'http://localhost:8080'
-        description: Local development server
+        url: 'https://app.kerlideploy.xyz'
+        description: Production server
 paths:
     /users:
         summary: User related operations
