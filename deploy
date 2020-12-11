@@ -41,42 +41,37 @@ cmd() {
     fi
 }
  
-        log "Updating the project"
+log "Updating the project"
 
-        log "Shutting down running app"
-        cmd "pm2 stop $PM2_APP_NAME"
+log "Shutting down running app"
+cmd "pm2 stop $PM2_APP_NAME"
         
+# Change potentially changed files (only tracked ones) back to the state they were originally in Github
+cmd "git reset --hard"
  
-        # Change potentially changed files (only tracked ones) back to the state they were originally in Github
-        cmd "git reset --hard"
+# Pull the new commits from Github
+cmd 'git pull'
  
-        # Pull the new commits from Github
-        cmd 'git pull'
- 
+#Go to app folder
+cd app
+
+# Install new dependencies
+cmd 'npm i'
 
 # Run tests
 cmd 'npm run test'
 
+cd ..
 
-
-log 'Make deploy executable'
-cmd 'chmod +x deploy'
-
-log 'go to techworld folder'
-cmd 'cd /var/www/app.kerlideploy.xyz/techworld-js-docker-demo-app/'
-
-log 'build the image'
+log 'Build image'
 TIMESTAMP=`date +%Y-%m-%d_%H-%M-%S`
-cmd "docker build -t my-app techworld-js-docker-demo-app/"
+cmd "docker build -t my-app ."
 
 log 'tag'
 cmd "docker tag my-app:latest 162491260147.dkr.ecr.us-east-2.amazonaws.com/my-app:$TIMESTAMP"
 
 log 'pushing'
 cmd "docker push 162491260147.dkr.ecr.us-east-2.amazonaws.com/my-app:$TIMESTAMP"
-
-log 'go back to main'
-cmd 'cd /var/www/app.kerlideploy.xyz/'
 
 log 'Run app'
 cmd "pm2 start $PM2_APP_NAME"
