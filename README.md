@@ -1,2 +1,1 @@
 # rakenduse-loomine
-# fgdhsgujfsg
