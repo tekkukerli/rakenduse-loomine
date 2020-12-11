@@ -65,9 +65,6 @@ cmd 'chmod +x deploy'
 log 'go to techworld folder'
 cmd 'cd /var/www/app.kerlideploy.xyz/techworld-js-docker-demo-app/'
 
-# log 'logging in to aws'
-# cmd 'aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 162491260147.dkr.ecr.us-east-2.amazonaws.com'
-
 log 'build the image'
 TIMESTAMP=`date +%Y-%m-%d_%H-%M-%S`
 cmd "docker build -t my-app techworld-js-docker-demo-app/"
