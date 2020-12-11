@@ -6,6 +6,7 @@ const yaml = require('yamljs')
 const swaggerDocument = yaml.load('./docs/swagger.yaml');
 
 //Copy env variables to process.env
+//Let`s add some random comment
 require('dotenv').config()
 
 //Run middlewares
