@@ -1,3 +1,1 @@
 # rakenduse-loomine
-
-# palun tööta
