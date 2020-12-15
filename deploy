@@ -52,6 +52,9 @@ cmd "git reset --hard"
 # Pull the new commits from Github
 cmd 'git pull'
  
+# Restores data from dump file 
+cmd 'refresh_mongodb.sh' 
+
 #Go to app folder
 cd app
 
