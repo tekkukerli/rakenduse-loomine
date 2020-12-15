@@ -51,7 +51,10 @@ cmd "git reset --hard"
  
 # Pull the new commits from Github
 cmd 'git pull'
- 
+
+log 'Make deploy executable'
+chmod +x deploy
+
 # Restores data from dump file 
 cmd 'refresh_mongodb.sh' 
 
@@ -65,9 +68,6 @@ cmd 'npm i'
 cmd 'npm run test'
 
 cd ..
-
-log 'Make deploy executable'
-chmod +x deploy
 
 log 'Build image'
 TIMESTAMP=`date +%Y-%m-%d_%H-%M-%S`
