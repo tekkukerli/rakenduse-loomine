@@ -56,7 +56,7 @@ log 'Make deploy executable'
 chmod +x deploy
 
 # Restores data from dump file 
-cmd 'refresh_mongodb.sh' 
+cmd 'refresh_mongodb.sh --dump' 
 
 #Go to app folder
 cd app
