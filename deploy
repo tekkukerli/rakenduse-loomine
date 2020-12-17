@@ -61,11 +61,11 @@ cmd 'npm i'
 # Run tests
 cmd 'npm run test'
 
-# Back to root folder
-cd ..
-
 # Log in to AWS
 cmd 'aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 162491260147.dkr.ecr.us-east-2.amazonaws.com'
+
+# Back to root folder
+cd ..
 
 log 'Build image'
 TIMESTAMP=`date +%Y-%m-%d_%H-%M-%S`
